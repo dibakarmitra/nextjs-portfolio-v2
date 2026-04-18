@@ -1,52 +1,55 @@
-# Portfolio Next.js V2
+# Next.js Portfolio v2
 
-A modern, feature-rich portfolio application with an admin panel built with Next.js, TypeScript, and Cloudflare R2 storage. Uses SQLite database with Knex.js for data management.
+A modern, lightweight, high-performance portfolio built with Next.js, TypeScript, and MDX.
 
-## Features
+## 🚀 Features
 
-- **Admin Dashboard**: Manage all portfolio content with an intuitive admin interface
-- **Blog/Notes**: Write and publish blog posts with categories and tags
-- **Projects**: Showcase your projects with detailed information
-- **Resume**: Display your professional experience, education, skills, and certifications
-- **Media Management**: Upload and manage images and other media files to Cloudflare R2 storage
-- **SQLite Database**: Local SQLite database for data persistence with Knex.js ORM
-- **Dark Mode**: Support for light and dark themes
-- **Responsive Design**: Works seamlessly on all devices
+- **Static-First**: Blazing fast performance with Next.js App Router.
+- **MDX Powered**: Write notes/blogs using markdown in the `contents/` directory.
+- **Contact Form**: Integrated with Resend API for seamless email submissions.
+- **SEO Optimized**: Dynamic `sitemap.ts` and `robots.ts` generation.
+- **Premium UI**: Clean, modern design with dark mode and smooth animations.
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-- **Framework**: Next.js 16.1.6
-- **Language**: TypeScript
+- **Framework**: Next.js 16 (App Router)
 - **Styling**: Tailwind CSS
-- **Database**: SQLite with Knex.js
-- **Storage**: Cloudflare R2
-- **Authentication**: NextAuth.js
-- **Markdown**: MDX with rehype and remark plugins
+- **Content**: MDX (`next-mdx-remote`)
+- **Email**: Resend
+- **Deployment**: Optimized for Vercel/Static Hosting
 
-## Getting Started
+## 🏁 Getting Started
 
-1. Clone the repository
-2. Copy `.env.example` to `.env.local` and fill in the required environment variables
-3. Run `npm install` to install dependencies
-4. Run `npm run migrate` to set up the database
-5. Run `npm run dev` to start the development server
+1. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
 
-## Environment Variables
+2. **Setup Environment**:
+   Create a `.env.local` file:
+   ```bash
+   APP_NAME="Your Portfolio"
+   APP_URL="http://localhost:3000"
+   RESEND_API_KEY="re_..."
+   CONTACT_EMAIL_FROM="onboarding@resend.dev"
+   CONTACT_EMAIL_TO="your@email.com"
+   ```
 
-- `AUTH_SECRET`: Authentication secret key
-- `CLOUDFLARE_R2_ENDPOINT`: Cloudflare R2 endpoint
-- `CLOUDFLARE_R2_ACCESS_KEY_ID`: Cloudflare R2 access key ID
-- `CLOUDFLARE_R2_SECRET_ACCESS_KEY`: Cloudflare R2 secret access key
-- `CLOUDFLARE_R2_BUCKET_NAME`: Cloudflare R2 bucket name
-- `CLOUDFLARE_R2_PUBLIC_URL`: Cloudflare R2 public URL
-- `GEMINI_API_KEY`: Google Gemini API key (optional for AI features)
-- `RESEND_API_KEY`: Resend API key (optional for email features)
+3. **Run Development Server**:
+   ```bash
+   npm run dev
+   ```
 
-## Scripts
+## 📁 Project Structure
 
-- `npm run dev`: Start development server
-- `npm run build`: Build for production
-- `npm run start`: Start production server
-- `npm run migrate`: Run database migrations
-- `npm run lint`: Run ESLint
-- `npm run format`: Format code with Prettier
+- `config/data.ts`: Main source of truth for profile, projects, and resume data.
+- `contents/`: All blog/notes in `.mdx` format.
+- `components/web/`: UI components and layout sections.
+- `app/api/send/`: Resend email integration route.
+
+## 📜 Scripts
+
+- `npm run dev`: Start development server.
+- `npm run build`: Build for production.
+- `npm run format`: Format code with Prettier.
+- `npm run lint`: Run ESLint checks.
