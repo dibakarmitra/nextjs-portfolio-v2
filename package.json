@@ -1,6 +1,6 @@
 {
     "name": "nextjs-portfolio-v2",
-    "description": "A modern, lightweight, high-performance portfolio built with Next.js and TypeScript",
+    "description": "A modern, lightweight, high-performance portfolio built with Next.js, TypeScript, TailwindCSS and MDX",
     "keywords": [
         "portfolio",
         "nextjs",
