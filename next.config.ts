@@ -12,7 +12,6 @@ const nextConfig: NextConfig = {
         optimizePackageImports: ['lucide-react'],
     },
 
-    serverExternalPackages: ['knex', 'better-sqlite3'],
     images: {
         dangerouslyAllowSVG: true,
         contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
