@@ -1,4 +1,4 @@
-import { Note } from '@/types/web';
+import { Note } from '@/types';
 import matter from 'gray-matter';
 import fs from 'fs/promises';
 import path from 'path';

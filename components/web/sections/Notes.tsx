@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ArrowRight, BookOpen } from 'lucide-react';
 import Section from '../ui/Section';
 import FadeIn from '../ui/FadeIn';
-import { Note } from '@/types/web';
+import { Note } from '@/types';
 interface NotesProps {
     notes: Note[];
     notes_count: number;

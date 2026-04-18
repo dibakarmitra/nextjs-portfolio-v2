@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { NoteDetail } from '@/components/web';
 import { getNote, getNotes } from '@/lib/webNotes';
 import { publicSiteData } from '@/config/data';
-import { Note as WebNote } from '@/types/web';
+import { Note as WebNote } from '@/types';
 
 interface Props {
     params: Promise<{ slug: string }>;

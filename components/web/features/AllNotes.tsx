@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Search } from 'lucide-react';
 import FadeIn from '../ui/FadeIn';
 import { DebounceInput } from '../ui/DebounceInput';
-import { Note } from '@/types/web';
+import { Note } from '@/types';
 
 interface AllNotesProps {
     notes: Note[];

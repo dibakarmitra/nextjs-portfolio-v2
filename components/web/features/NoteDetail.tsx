@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { ArrowLeft, Calendar, ExternalLink } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { Note } from '@/types/web';
+import { Note } from '@/types';
 import FadeIn from '../ui/FadeIn';
 
 interface NoteDetailProps {
