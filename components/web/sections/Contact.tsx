@@ -86,12 +86,12 @@ const Contact: React.FC = () => {
     return (
         <Section id="contact" title="Contact Me">
             <FadeIn>
-                <div className="bg-white dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-xl p-6 md:p-8">
+                <div className="rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900/50 md:p-8">
                     <form className="space-y-4" onSubmit={handleSubmit}>
                         <div className="space-y-1">
                             <label
                                 htmlFor="name"
-                                className="text-xs font-bold text-zinc-500 uppercase"
+                                className="text-xs font-bold uppercase text-zinc-500"
                             >
                                 Name
                             </label>
@@ -104,7 +104,7 @@ const Contact: React.FC = () => {
                                     onChange={handleChange}
                                     required
                                     placeholder={publicProfile.displayName}
-                                    className="w-full bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-lg px-4 py-3 text-sm text-zinc-800 dark:text-zinc-300 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-600 transition-all placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
+                                    className="w-full rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-800 transition-all placeholder:text-zinc-400 focus:border-zinc-400 focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300 dark:placeholder:text-zinc-600 dark:focus:border-zinc-600 dark:focus:ring-zinc-600"
                                 />
                             </div>
                         </div>
@@ -112,7 +112,7 @@ const Contact: React.FC = () => {
                         <div className="space-y-1">
                             <label
                                 htmlFor="email"
-                                className="text-xs font-bold text-zinc-500 uppercase"
+                                className="text-xs font-bold uppercase text-zinc-500"
                             >
                                 Email
                             </label>
@@ -124,14 +124,14 @@ const Contact: React.FC = () => {
                                 onChange={handleChange}
                                 required
                                 placeholder={publicProfile.email}
-                                className="w-full bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-lg px-4 py-3 text-sm text-zinc-800 dark:text-zinc-300 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-600 transition-all placeholder:text-zinc-400 dark:placeholder:text-zinc-600"
+                                className="w-full rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-800 transition-all placeholder:text-zinc-400 focus:border-zinc-400 focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300 dark:placeholder:text-zinc-600 dark:focus:border-zinc-600 dark:focus:ring-zinc-600"
                             />
                         </div>
 
                         <div className="space-y-1">
                             <label
                                 htmlFor="message"
-                                className="text-xs font-bold text-zinc-500 uppercase"
+                                className="text-xs font-bold uppercase text-zinc-500"
                             >
                                 Message
                             </label>
@@ -143,13 +143,13 @@ const Contact: React.FC = () => {
                                 onChange={handleChange}
                                 required
                                 placeholder="Your message ..."
-                                className="w-full bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-lg px-4 py-3 text-sm text-zinc-800 dark:text-zinc-300 focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-600 transition-all placeholder:text-zinc-400 dark:placeholder:text-zinc-600 resize-none"
+                                className="w-full resize-none rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-3 text-sm text-zinc-800 transition-all placeholder:text-zinc-400 focus:border-zinc-400 focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300 dark:placeholder:text-zinc-600 dark:focus:border-zinc-600 dark:focus:ring-zinc-600"
                             ></textarea>
                         </div>
 
                         {submitStatus.visible && (
                             <div
-                                className={`p-4 rounded-lg text-sm ${submitStatus.type === 'success' ? 'bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-300' : 'bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-300'}`}
+                                className={`rounded-lg p-4 text-sm ${submitStatus.type === 'success' ? 'bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-300' : 'bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-300'}`}
                             >
                                 {submitStatus.message}
                             </div>
@@ -158,10 +158,10 @@ const Contact: React.FC = () => {
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className={`inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-all mt-2 cursor-pointer ${
+                            className={`mt-2 inline-flex cursor-pointer items-center rounded-lg px-4 py-2 text-sm font-medium transition-all ${
                                 isSubmitting
-                                    ? 'bg-zinc-100 text-zinc-400 cursor-not-allowed'
-                                    : 'bg-zinc-100 dark:bg-zinc-100 text-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-200'
+                                    ? 'cursor-not-allowed bg-zinc-100 text-zinc-400'
+                                    : 'bg-zinc-100 text-zinc-900 hover:bg-zinc-200 dark:bg-zinc-100 dark:hover:bg-zinc-200'
                             }`}
                         >
                             {isSubmitting ? 'Sending...' : 'Send Message'}

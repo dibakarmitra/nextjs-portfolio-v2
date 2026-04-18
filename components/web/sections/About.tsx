@@ -13,7 +13,7 @@ const About: React.FC<AboutProps> = ({ bio }) => {
     return (
         <Section id="about" title="About">
             <FadeIn>
-                <div className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm space-y-4 font-mono">
+                <div className="space-y-4 font-mono text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                     <p>{content}</p>
                     <p>
                         Besides coding, I enjoy writing tech blogs, watching anime, and playing

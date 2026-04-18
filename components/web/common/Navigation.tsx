@@ -21,8 +21,6 @@ const Navigation: React.FC = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-
-
     const navLinks = [
         { name: 'About', href: '#about' },
         { name: 'Stack', href: '#tech-stack' },
@@ -35,23 +33,23 @@ const Navigation: React.FC = () => {
     return (
         <>
             <nav
-                className={`fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent ${scrolled ? 'bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-zinc-200/50 dark:border-zinc-800/50' : ''}`}
+                className={`fixed top-0 z-50 w-full border-b border-transparent transition-all duration-300 ${scrolled ? 'border-zinc-200/50 bg-white/80 backdrop-blur-md dark:border-zinc-800/50 dark:bg-zinc-950/80' : ''}`}
             >
-                <div className="max-w-3xl mx-auto px-4 md:px-6 h-16 flex justify-between items-center">
+                <div className="mx-auto flex h-16 max-w-3xl items-center justify-between px-4 md:px-6">
                     <Link
                         href="/"
-                        className="text-sm font-bold text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                        className="text-sm font-bold text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
                     >
                         {publicSiteData.name}
                     </Link>
 
                     {/* Desktop Links */}
-                    <div className="hidden md:flex items-center gap-6">
+                    <div className="hidden items-center gap-6 md:flex">
                         {navLinks.map((link) => (
                             <a
                                 key={link.name}
                                 href={link.href}
-                                className="text-xs font-medium text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                                className="text-xs font-medium text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
                             >
                                 {link.name}
                             </a>
@@ -62,7 +60,7 @@ const Navigation: React.FC = () => {
                         {/* Resume Link */}
                         <Link
                             href="/resume"
-                            className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                            className="text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
                             title="Resume"
                         >
                             <FileText size={18} />
@@ -73,26 +71,34 @@ const Navigation: React.FC = () => {
                                 href={publicProfile.socials.github}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                                className="text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
                                 aria-label="GitHub Profile"
                             >
                                 <Code size={18} />
                             </a>
                         )}
 
-                        <div className="w-px h-4 bg-zinc-200 dark:bg-zinc-800 hidden md:block"></div>
+                        <div className="hidden h-4 w-px bg-zinc-200 dark:bg-zinc-800 md:block"></div>
 
                         <button
                             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                            className="group p-2 rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer"
+                            className="group cursor-pointer rounded-full bg-zinc-100 p-2 text-zinc-500 transition-colors hover:text-zinc-900 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-100"
                             aria-label="Toggle Theme"
                         >
-                            {mounted ? (theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />) : <div className="w-[18px] h-[18px]" />}
+                            {mounted ? (
+                                theme === 'dark' ? (
+                                    <Sun size={18} />
+                                ) : (
+                                    <Moon size={18} />
+                                )
+                            ) : (
+                                <div className="h-[18px] w-[18px]" />
+                            )}
                         </button>
 
                         {/* Mobile Menu Toggle */}
                         <button
-                            className="md:hidden text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 ml-2"
+                            className="ml-2 text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 md:hidden"
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                             aria-label="Toggle Menu"
                         >
@@ -103,12 +109,12 @@ const Navigation: React.FC = () => {
 
                 {/* Mobile Menu */}
                 {mobileMenuOpen && (
-                    <div className="md:hidden absolute top-16 left-0 w-full bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 p-4 flex flex-col gap-4 shadow-xl">
+                    <div className="absolute left-0 top-16 flex w-full flex-col gap-4 border-b border-zinc-200 bg-white p-4 shadow-xl dark:border-zinc-800 dark:bg-zinc-950 md:hidden">
                         {navLinks.map((link) => (
                             <a
                                 key={link.name}
                                 href={link.href}
-                                className="text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors block py-2"
+                                className="block py-2 text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 {link.name}

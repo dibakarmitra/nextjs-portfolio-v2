@@ -60,21 +60,21 @@ const Experience: React.FC<ExperienceProps> = ({ experiences: dbExperiences }) =
 
                     return (
                         <FadeIn key={index} delay={index * 100}>
-                            <div className="relative border-l border-zinc-200 dark:border-zinc-800 pl-6 pb-2 transition-all">
+                            <div className="relative border-l border-zinc-200 pb-2 pl-6 transition-all dark:border-zinc-800">
                                 <div
-                                    className={`absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full border-2 transition-colors ${
+                                    className={`absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border-2 transition-colors ${
                                         isOpen || exp.current
-                                            ? 'bg-zinc-50 border-zinc-900 dark:bg-zinc-950 dark:border-white'
-                                            : 'bg-zinc-200 border-zinc-400 dark:bg-zinc-800 dark:border-zinc-600'
+                                            ? 'border-zinc-900 bg-zinc-50 dark:border-white dark:bg-zinc-950'
+                                            : 'border-zinc-400 bg-zinc-200 dark:border-zinc-600 dark:bg-zinc-800'
                                     }`}
                                 ></div>
 
                                 <div
                                     onClick={() => toggleItem(index)}
-                                    className="group cursor-pointer flex flex-col sm:flex-row sm:items-start sm:justify-between pr-2"
+                                    className="group flex cursor-pointer flex-col pr-2 sm:flex-row sm:items-start sm:justify-between"
                                 >
                                     <div className="flex-1">
-                                        <h3 className="text-base font-bold text-zinc-900 dark:text-zinc-100 flex items-center gap-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                                        <h3 className="flex items-center gap-2 text-base font-bold text-zinc-900 transition-colors group-hover:text-blue-600 dark:text-zinc-100 dark:group-hover:text-blue-400">
                                             {exp.role === 'Looking For an Opportunity' && (
                                                 <Lightbulb size={16} className="text-yellow-500" />
                                             )}
@@ -82,21 +82,21 @@ const Experience: React.FC<ExperienceProps> = ({ experiences: dbExperiences }) =
                                             {exp.company !== 'Looking For an Opportunity' && (
                                                 <ArrowUpRight
                                                     size={14}
-                                                    className="text-zinc-400 dark:text-zinc-600 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+                                                    className="text-zinc-400 transition-colors group-hover:text-blue-600 dark:text-zinc-600 dark:group-hover:text-blue-400"
                                                 />
                                             )}
                                         </h3>
-                                        <div className="text-sm text-zinc-600 dark:text-zinc-400 font-medium mt-0.5">
+                                        <div className="mt-0.5 text-sm font-medium text-zinc-600 dark:text-zinc-400">
                                             {exp.role}
                                         </div>
                                     </div>
 
-                                    <div className="flex items-center gap-4 mt-2 sm:mt-0">
-                                        <span className="text-xs text-zinc-500 font-mono whitespace-nowrap">
+                                    <div className="mt-2 flex items-center gap-4 sm:mt-0">
+                                        <span className="whitespace-nowrap font-mono text-xs text-zinc-500">
                                             {exp.period}
                                         </span>
                                         <div
-                                            className={`text-zinc-400 dark:text-zinc-500 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-transform duration-300 ${isOpen ? '-rotate-180' : ''}`}
+                                            className={`text-zinc-400 transition-transform duration-300 group-hover:text-zinc-600 dark:text-zinc-500 dark:group-hover:text-zinc-300 ${isOpen ? '-rotate-180' : ''}`}
                                         >
                                             <ChevronDown size={16} />
                                         </div>
@@ -106,13 +106,13 @@ const Experience: React.FC<ExperienceProps> = ({ experiences: dbExperiences }) =
                                 <div
                                     className={`grid transition-[grid-template-rows] duration-300 ease-out ${
                                         isOpen
-                                            ? 'grid-rows-[1fr] opacity-100 mt-4'
-                                            : 'grid-rows-[0fr] opacity-0 mt-0'
+                                            ? 'mt-4 grid-rows-[1fr] opacity-100'
+                                            : 'mt-0 grid-rows-[0fr] opacity-0'
                                     }`}
                                 >
                                     <div className="overflow-hidden">
                                         <div className="space-y-4 pb-2">
-                                            <div className="text-xs text-zinc-500 font-mono border-b border-zinc-200 dark:border-zinc-800/50 pb-2 mb-2 inline-block">
+                                            <div className="mb-2 inline-block border-b border-zinc-200 pb-2 font-mono text-xs text-zinc-500 dark:border-zinc-800/50">
                                                 {exp.type}
                                             </div>
 
@@ -122,9 +122,9 @@ const Experience: React.FC<ExperienceProps> = ({ experiences: dbExperiences }) =
                                                         (desc: string, i: number) => (
                                                             <li
                                                                 key={i}
-                                                                className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed flex items-start"
+                                                                className="flex items-start text-sm leading-relaxed text-zinc-600 dark:text-zinc-400"
                                                             >
-                                                                <span className="mr-2 mt-1.5 w-1 h-1 bg-zinc-400 dark:bg-zinc-600 rounded-full shrink-0"></span>
+                                                                <span className="mr-2 mt-1.5 h-1 w-1 shrink-0 rounded-full bg-zinc-400 dark:bg-zinc-600"></span>
                                                                 {desc}
                                                             </li>
                                                         )
@@ -137,7 +137,7 @@ const Experience: React.FC<ExperienceProps> = ({ experiences: dbExperiences }) =
                                                     {exp.skills.map((skill: string) => (
                                                         <span
                                                             key={skill}
-                                                            className="px-2 py-0.5 bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded text-[10px] text-zinc-600 dark:text-zinc-300 font-mono"
+                                                            className="rounded border border-zinc-200 bg-zinc-100 px-2 py-0.5 font-mono text-[10px] text-zinc-600 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-300"
                                                         >
                                                             {skill}
                                                         </span>

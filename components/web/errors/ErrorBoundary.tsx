@@ -30,8 +30,8 @@ export class ErrorBoundary extends React.Component<Props, State> {
         if (this.state.hasError) {
             return (
                 this.props.fallback || (
-                    <div className="text-center py-12 px-6">
-                        <h2 className="text-xl font-bold text-red-600 mb-2">
+                    <div className="px-6 py-12 text-center">
+                        <h2 className="mb-2 text-xl font-bold text-red-600">
                             Something went wrong
                         </h2>
                         <p className="text-zinc-600 dark:text-zinc-400">

@@ -84,7 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     title="JSON Feed"
                 />
             </head>
-            <body className="antialiased min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-950 dark:to-gray-900">
+            <body className="min-h-screen bg-gradient-to-b from-white to-gray-50 antialiased dark:from-gray-950 dark:to-gray-900">
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                     {children}
                 </ThemeProvider>

@@ -1,14 +1,7 @@
 'use client';
 
 import React from 'react';
-import {
-    Briefcase,
-    MessageSquare,
-    ExternalLink,
-    Code,
-    Book,
-    Layout,
-} from 'lucide-react';
+import { Briefcase, MessageSquare, ExternalLink, Code, Book, Layout } from 'lucide-react';
 import { publicProfile } from '@/config/data';
 
 interface SocialsProps {
@@ -65,30 +58,30 @@ const Socials: React.FC<SocialsProps> = ({ socials: dbSocials }) => {
     };
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+        <div className="mb-10 grid grid-cols-1 gap-4 md:grid-cols-2">
             {socials.map((social, idx) => (
-                    <a
-                        key={social.platform}
-                        href={social.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={`Visit ${social.platform} profile`}
-                        className="flex items-center p-4 bg-white dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-lg hover:border-zinc-400 dark:hover:border-zinc-600 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all group"
-                    >
-                        <div className="bg-zinc-100 dark:bg-zinc-950 p-2 rounded-md text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-white transition-colors">
-                            {getIcon(social.icon)}
+                <a
+                    key={social.platform}
+                    href={social.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Visit ${social.platform} profile`}
+                    className="group flex items-center rounded-lg border border-zinc-200 bg-white p-4 transition-all hover:border-zinc-400 hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900/50 dark:hover:border-zinc-600 dark:hover:bg-zinc-800"
+                >
+                    <div className="rounded-md bg-zinc-100 p-2 text-zinc-500 transition-colors group-hover:text-zinc-900 dark:bg-zinc-950 dark:text-zinc-400 dark:group-hover:text-white">
+                        {getIcon(social.icon)}
+                    </div>
+                    <div className="ml-4 flex-grow">
+                        <div className="text-sm font-medium text-zinc-800 dark:text-zinc-200">
+                            {social.platform}
                         </div>
-                        <div className="ml-4 flex-grow">
-                            <div className="text-sm font-medium text-zinc-800 dark:text-zinc-200">
-                                {social.platform}
-                            </div>
-                            <p className="text-xs text-zinc-500">{social.username}</p>
-                        </div>
-                        <ExternalLink
-                            size={16}
-                            className="text-zinc-400 dark:text-zinc-600 group-hover:text-zinc-600 dark:group-hover:text-zinc-400"
-                        />
-                    </a>
+                        <p className="text-xs text-zinc-500">{social.username}</p>
+                    </div>
+                    <ExternalLink
+                        size={16}
+                        className="text-zinc-400 group-hover:text-zinc-600 dark:text-zinc-600 dark:group-hover:text-zinc-400"
+                    />
+                </a>
             ))}
         </div>
     );

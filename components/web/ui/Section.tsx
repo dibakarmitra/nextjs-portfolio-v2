@@ -20,12 +20,12 @@ const Section: React.FC<SectionProps> = ({
     return (
         <section id={id} className={`scroll-mt-24 py-10 ${className}`}>
             {(title || rightElement) && (
-                <div className="flex justify-between items-baseline mb-6">
+                <div className="mb-6 flex items-baseline justify-between">
                     {title && (
-                        <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 flex items-baseline">
+                        <h2 className="flex items-baseline text-2xl font-bold text-zinc-900 dark:text-zinc-100">
                             {title}
                             {count !== undefined && (
-                                <span className="ml-2 text-sm text-zinc-500 dark:text-zinc-400 font-normal">
+                                <span className="ml-2 text-sm font-normal text-zinc-500 dark:text-zinc-400">
                                     ({count})
                                 </span>
                             )}

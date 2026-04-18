@@ -5,7 +5,7 @@ import { publicSiteData } from '@/config/data';
 
 const Footer: React.FC = () => {
     return (
-        <footer className="max-w-3xl mx-auto px-6 mt-20 text-center text-xs text-zinc-500 dark:text-zinc-400 font-mono pb-8 print:hidden">
+        <footer className="mx-auto mt-20 max-w-3xl px-6 pb-8 text-center font-mono text-xs text-zinc-500 dark:text-zinc-400 print:hidden">
             <p>Crafted with Next.js, TypeScript & Tailwind CSS</p>
             <p className="mt-4">
                 Built by{' '}
@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
                 </a>
                 .
             </p>
-            <div className="flex justify-center gap-4 mt-2">
+            <div className="mt-2 flex justify-center gap-4">
                 <a
                     href="/feed/rss.xml"
                     className="underline hover:text-zinc-700 dark:hover:text-zinc-300"

@@ -30,29 +30,29 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
     };
 
     return (
-        <div className="pt-12 pb-12 min-h-screen">
-            <div className="max-w-3xl mx-auto px-6">
+        <div className="min-h-screen pb-12 pt-12">
+            <div className="mx-auto max-w-3xl px-6">
                 <div className="mb-12">
                     <Link
                         href="/"
-                        className="inline-flex items-center text-sm font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors mb-6"
+                        className="mb-6 inline-flex items-center text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
                     >
                         <ArrowLeft size={16} className="mr-2" /> Back to Home
                     </Link>
                     <h1 className="text-3xl font-bold text-zinc-900 dark:text-zinc-100">
                         All Projects
                     </h1>
-                    <p className="text-zinc-600 dark:text-zinc-400 mt-2">
+                    <p className="mt-2 text-zinc-600 dark:text-zinc-400">
                         A collection of projects I've worked on, from side hustles to experiments.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     {currentProjects.map((project, index) => (
                         <FadeIn key={project.id || index} delay={index * 50}>
-                            <div className="h-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-5 flex flex-col hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors">
-                                <div className="flex justify-between items-start mb-4">
-                                    <div className="p-2 bg-zinc-100 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-lg">
+                            <div className="flex h-full flex-col rounded-xl border border-zinc-200 bg-white p-5 transition-colors hover:border-zinc-300 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-700">
+                                <div className="mb-4 flex items-start justify-between">
+                                    <div className="rounded-lg border border-zinc-200 bg-zinc-100 p-2 dark:border-zinc-800 dark:bg-zinc-950">
                                         <Folder
                                             size={18}
                                             className="text-zinc-700 dark:text-zinc-100"
@@ -65,7 +65,7 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
                                                 target="_blank"
                                                 rel="noreferrer"
                                                 aria-label={`View ${project.title} code`}
-                                                className="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                                                className="text-zinc-400 transition-colors hover:text-zinc-900 dark:hover:text-white"
                                             >
                                                 <Code size={18} />
                                             </a>
@@ -76,7 +76,7 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
                                                 target="_blank"
                                                 rel="noreferrer"
                                                 aria-label={`View ${project.title} live`}
-                                                className="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                                                className="text-zinc-400 transition-colors hover:text-zinc-900 dark:hover:text-white"
                                             >
                                                 <ArrowUpRight size={18} />
                                             </a>
@@ -84,22 +84,28 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
                                     </div>
                                 </div>
 
-                                <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 mb-1">
+                                <h3 className="mb-1 text-lg font-bold text-zinc-900 dark:text-zinc-100">
                                     {project.title}
                                 </h3>
-                                <p className="text-xs text-zinc-500 font-mono mb-3">
-                                    {project.date ? new Date(project.date).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }) : ''}
+                                <p className="mb-3 font-mono text-xs text-zinc-500">
+                                    {project.date
+                                        ? new Date(project.date).toLocaleDateString('en-GB', {
+                                              day: '2-digit',
+                                              month: '2-digit',
+                                              year: 'numeric',
+                                          })
+                                        : ''}
                                 </p>
 
-                                <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-4 flex-grow leading-relaxed">
+                                <p className="mb-4 flex-grow text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                                     {project.excerpt || project.content}
                                 </p>
 
-                                <div className="flex flex-wrap gap-2 pt-4 border-t border-zinc-100 dark:border-zinc-800/50 mt-auto">
+                                <div className="mt-auto flex flex-wrap gap-2 border-t border-zinc-100 pt-4 dark:border-zinc-800/50">
                                     {project.tags?.map((tag) => (
                                         <span
                                             key={tag.id}
-                                            className="px-1.5 py-0.5 bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded text-[10px] text-zinc-600 dark:text-zinc-300 font-mono"
+                                            className="rounded border border-zinc-200 bg-zinc-50 px-1.5 py-0.5 font-mono text-[10px] text-zinc-600 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300"
                                         >
                                             {tag.name}
                                         </span>
@@ -110,30 +116,30 @@ const AllProjects: React.FC<AllProjectsProps> = ({ projects }) => {
                     ))}
                 </div>
 
-                <div className="flex justify-between items-center mt-12 pt-8 border-t border-zinc-100 dark:border-zinc-800">
+                <div className="mt-12 flex items-center justify-between border-t border-zinc-100 pt-8 dark:border-zinc-800">
                     <button
                         onClick={handlePrev}
                         disabled={page === 1}
-                        className={`flex items-center text-sm font-medium px-4 py-2 rounded-lg transition-colors ${
+                        className={`flex items-center rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                             page === 1
-                                ? 'text-zinc-300 dark:text-zinc-700 cursor-not-allowed'
-                                : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100 cursor-pointer'
+                                ? 'cursor-not-allowed text-zinc-300 dark:text-zinc-700'
+                                : 'cursor-pointer text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100'
                         }`}
                     >
                         <ArrowLeft size={16} className="mr-2" /> Previous
                     </button>
 
-                    <span className="text-sm text-zinc-500 font-mono">
+                    <span className="font-mono text-sm text-zinc-500">
                         Page {page} of {totalPages}
                     </span>
 
                     <button
                         onClick={handleNext}
                         disabled={page >= totalPages}
-                        className={`flex items-center text-sm font-medium px-4 py-2 rounded-lg transition-colors ${
+                        className={`flex items-center rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
                             page >= totalPages
-                                ? 'text-zinc-300 dark:text-zinc-700 cursor-not-allowed'
-                                : 'text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-zinc-100 cursor-pointer'
+                                ? 'cursor-not-allowed text-zinc-300 dark:text-zinc-700'
+                                : 'cursor-pointer text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100'
                         }`}
                     >
                         Next <ArrowUpRight size={16} className="ml-2 rotate-45" />

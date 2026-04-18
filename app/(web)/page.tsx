@@ -18,10 +18,10 @@ export default async function HomePage() {
     const notes = await getNotes();
 
     return (
-        <div className="min-h-screen relative">
+        <div className="relative min-h-screen">
             <Navigation />
 
-            <main className="max-w-3xl mx-auto px-6 relative z-10">
+            <main className="relative z-10 mx-auto max-w-3xl px-6">
                 <Hero profile={portfolioData.profile} />
                 <Socials socials={portfolioData.profile?.socials} />
                 <About bio={portfolioData.profile?.bio} />

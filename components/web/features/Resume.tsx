@@ -153,7 +153,7 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
     );
 
     return (
-        <div className="bg-zinc-50 min-h-screen py-8 px-4 md:px-8 font-sans text-zinc-900 print:bg-white print:p-0">
+        <div className="min-h-screen bg-zinc-50 px-4 py-8 font-sans text-zinc-900 md:px-8 print:bg-white print:p-0">
             <style>
                 {`
                 @media print {
@@ -182,32 +182,32 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
                 }
             `}
             </style>
-            <div className="max-w-[210mm] mx-auto print-reset-width">
+            <div className="print-reset-width mx-auto max-w-[210mm]">
                 {/* Toolbar */}
-                <div className="flex justify-between items-center mb-8 print:hidden">
+                <div className="mb-8 flex items-center justify-between print:hidden">
                     <Link
                         href="/"
-                        className="flex items-center text-zinc-600 hover:text-zinc-900 font-medium transition-colors"
+                        className="flex items-center font-medium text-zinc-600 transition-colors hover:text-zinc-900"
                     >
                         <ArrowLeft size={18} className="mr-2" /> Back to Portfolio
                     </Link>
                     <button
                         onClick={() => window.print()}
-                        className="flex items-center bg-zinc-900 text-white px-5 py-2 rounded-lg hover:bg-zinc-700 transition-colors shadow-sm cursor-pointer"
+                        className="flex cursor-pointer items-center rounded-lg bg-zinc-900 px-5 py-2 text-white shadow-sm transition-colors hover:bg-zinc-700"
                     >
                         <Printer size={18} className="mr-2" /> Print / Save PDF
                     </button>
                 </div>
 
-                <div className="bg-white shadow-2xl print:shadow-none p-8 md:p-12 print:p-0 rounded-lg">
+                <div className="rounded-lg bg-white p-8 shadow-2xl md:p-12 print:p-0 print:shadow-none">
                     {/* Header */}
-                    <header className="flex flex-col md:flex-row print:flex-row justify-between items-start border-b-2 border-zinc-900 pb-6 mb-8 gap-6">
+                    <header className="mb-8 flex flex-col items-start justify-between gap-6 border-b-2 border-zinc-900 pb-6 md:flex-row print:flex-row">
                         <div className="flex flex-col gap-4">
                             <div>
-                                <h1 className="text-4xl md:text-5xl font-extrabold text-zinc-900 uppercase tracking-tighter leading-none mb-2">
+                                <h1 className="mb-2 text-4xl font-extrabold uppercase leading-none tracking-tighter text-zinc-900 md:text-5xl">
                                     {profile.name}
                                 </h1>
-                                <p className="text-xl text-blue-700 font-semibold tracking-wide">
+                                <p className="text-xl font-semibold tracking-wide text-blue-700">
                                     {profile.role}
                                 </p>
                             </div>
@@ -223,7 +223,7 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
                                 </div>
                                 <a
                                     href={`mailto:${profile.email}`}
-                                    className="flex items-center gap-2 hover:text-blue-600 transition-colors"
+                                    className="flex items-center gap-2 transition-colors hover:text-blue-600"
                                 >
                                     <Mail size={14} className="text-zinc-400" />
                                     <span>{profile.email}</span>
@@ -231,13 +231,13 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
                             </div>
                         </div>
 
-                        <div className="flex items-center gap-4 mt-2 md:mt-0 print:mt-0">
+                        <div className="mt-2 flex items-center gap-4 md:mt-0 print:mt-0">
                             {linkedin && (
                                 <a
                                     href={linkedin.url}
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="text-zinc-400 hover:text-blue-700 transition-colors"
+                                    className="text-zinc-400 transition-colors hover:text-blue-700"
                                     aria-label="LinkedIn"
                                 >
                                     <Briefcase size={22} />
@@ -248,7 +248,7 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
                                     href={github.url}
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="text-zinc-400 hover:text-zinc-900 transition-colors"
+                                    className="text-zinc-400 transition-colors hover:text-zinc-900"
                                     aria-label="GitHub"
                                 >
                                     <Code size={22} />
@@ -259,7 +259,7 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
                                     href={website.url}
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="text-zinc-400 hover:text-blue-600 transition-colors"
+                                    className="text-zinc-400 transition-colors hover:text-blue-600"
                                     aria-label="Portfolio"
                                 >
                                     <Globe size={22} />
@@ -270,33 +270,33 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
 
                     {/* Profile Section */}
                     <section className="mb-8">
-                        <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-3 border-b border-zinc-200 pb-1">
+                        <h3 className="mb-3 border-b border-zinc-200 pb-1 text-xs font-bold uppercase tracking-widest text-zinc-500">
                             Profile
                         </h3>
-                        <p className="text-sm text-zinc-700 leading-relaxed text-justify">
+                        <p className="text-justify text-sm leading-relaxed text-zinc-700">
                             {profile.bio}
                         </p>
                     </section>
 
                     {/* Resume Body */}
-                    <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] print:grid-cols-[1fr_2fr] gap-8 print:gap-6">
+                    <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_2fr] print:grid-cols-[1fr_2fr] print:gap-6">
                         {/* Left Column */}
                         <div className="space-y-8 print:space-y-6">
                             <section>
-                                <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-3 border-b border-zinc-200 pb-1">
+                                <h3 className="mb-3 border-b border-zinc-200 pb-1 text-xs font-bold uppercase tracking-widest text-zinc-500">
                                     Skills
                                 </h3>
                                 <div className="space-y-4">
                                     {skills.map((grp, i) => (
                                         <div key={i} className="break-inside-avoid">
-                                            <h4 className="font-bold text-zinc-900 text-xs mb-2">
+                                            <h4 className="mb-2 text-xs font-bold text-zinc-900">
                                                 {grp.category}
                                             </h4>
                                             <div className="flex flex-wrap gap-2">
                                                 {grp.items.map((skill, idx) => (
                                                     <span
                                                         key={idx}
-                                                        className="px-2 py-1 bg-zinc-100 rounded text-xs text-zinc-700 print:border print:border-zinc-200 print:bg-transparent"
+                                                        className="rounded bg-zinc-100 px-2 py-1 text-xs text-zinc-700 print:border print:border-zinc-200 print:bg-transparent"
                                                     >
                                                         {skill}
                                                     </span>
@@ -308,14 +308,14 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
                             </section>
 
                             <section>
-                                <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-3 border-b border-zinc-200 pb-1">
+                                <h3 className="mb-3 border-b border-zinc-200 pb-1 text-xs font-bold uppercase tracking-widest text-zinc-500">
                                     Strengths
                                 </h3>
                                 <div className="flex flex-wrap gap-2">
                                     {strengths.map((strength, idx) => (
                                         <span
                                             key={idx}
-                                            className="px-2 py-1 bg-zinc-100 rounded text-xs text-zinc-700 print:border print:border-zinc-200 print:bg-transparent"
+                                            className="rounded bg-zinc-100 px-2 py-1 text-xs text-zinc-700 print:border print:border-zinc-200 print:bg-transparent"
                                         >
                                             {strength}
                                         </span>
@@ -324,7 +324,7 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
                             </section>
 
                             <section>
-                                <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-3 border-b border-zinc-200 pb-1">
+                                <h3 className="mb-3 border-b border-zinc-200 pb-1 text-xs font-bold uppercase tracking-widest text-zinc-500">
                                     Languages
                                 </h3>
                                 <div className="space-y-1">
@@ -337,14 +337,14 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
                             </section>
 
                             <section>
-                                <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-3 border-b border-zinc-200 pb-1">
+                                <h3 className="mb-3 border-b border-zinc-200 pb-1 text-xs font-bold uppercase tracking-widest text-zinc-500">
                                     Hobbies
                                 </h3>
                                 <div className="flex flex-wrap gap-2">
                                     {publicPortfolioData.hobbies.map((hobby, idx) => (
                                         <span
                                             key={idx}
-                                            className="px-2 py-1 bg-zinc-100 rounded text-xs text-zinc-700 print:border print:border-zinc-200 print:bg-transparent"
+                                            className="rounded bg-zinc-100 px-2 py-1 text-xs text-zinc-700 print:border print:border-zinc-200 print:bg-transparent"
                                         >
                                             {hobby}
                                         </span>
@@ -356,30 +356,30 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
                         {/* Right Column */}
                         <div className="space-y-8 print:space-y-6">
                             <section>
-                                <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-4 border-b border-zinc-200 pb-1">
+                                <h3 className="mb-4 border-b border-zinc-200 pb-1 text-xs font-bold uppercase tracking-widest text-zinc-500">
                                     Work Experience
                                 </h3>
                                 <div className="space-y-6 print:space-y-5">
                                     {experience.map((exp, i) => (
                                         <div
                                             key={i}
-                                            className="relative pl-4 border-l-2 border-zinc-100 print:border-zinc-200 break-inside-avoid"
+                                            className="relative break-inside-avoid border-l-2 border-zinc-100 pl-4 print:border-zinc-200"
                                         >
                                             <div
-                                                className={`absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full border-2 border-white ${exp.current ? 'bg-blue-600' : 'bg-zinc-300'}`}
+                                                className={`absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-white ${exp.current ? 'bg-blue-600' : 'bg-zinc-300'}`}
                                             ></div>
-                                            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                                            <div className="mb-1 flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
                                                 <h4 className="text-base font-bold text-zinc-900">
                                                     {exp.role}
                                                 </h4>
-                                                <span className="text-xs font-medium text-zinc-500 font-mono bg-zinc-50 px-2 py-0.5 rounded print:bg-transparent print:p-0">
+                                                <span className="rounded bg-zinc-50 px-2 py-0.5 font-mono text-xs font-medium text-zinc-500 print:bg-transparent print:p-0">
                                                     {exp.period}
                                                 </span>
                                             </div>
-                                            <div className="text-blue-700 font-medium text-sm mb-2">
+                                            <div className="mb-2 text-sm font-medium text-blue-700">
                                                 {exp.company}
                                             </div>
-                                            <ul className="list-disc list-outside ml-4 space-y-1 text-zinc-700 text-sm leading-relaxed marker:text-zinc-400">
+                                            <ul className="ml-4 list-outside list-disc space-y-1 text-sm leading-relaxed text-zinc-700 marker:text-zinc-400">
                                                 {exp.description.map((point, idx) => (
                                                     <li key={idx} className="pl-1">
                                                         {point}
@@ -392,21 +392,21 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
                             </section>
 
                             <section>
-                                <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-4 border-b border-zinc-200 pb-1">
+                                <h3 className="mb-4 border-b border-zinc-200 pb-1 text-xs font-bold uppercase tracking-widest text-zinc-500">
                                     Education
                                 </h3>
                                 <div className="space-y-4">
                                     {education.map((edu, i) => (
                                         <div key={i} className="break-inside-avoid">
-                                            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
-                                                <div className="font-bold text-zinc-900 text-sm">
+                                            <div className="mb-1 flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
+                                                <div className="text-sm font-bold text-zinc-900">
                                                     {edu.degree}
                                                 </div>
-                                                <div className="text-zinc-400 text-xs font-mono">
+                                                <div className="font-mono text-xs text-zinc-400">
                                                     {edu.year}
                                                 </div>
                                             </div>
-                                            <div className="text-zinc-600 text-xs">
+                                            <div className="text-xs text-zinc-600">
                                                 {edu.school}
                                             </div>
                                         </div>
@@ -415,7 +415,7 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
                             </section>
 
                             <section>
-                                <h3 className="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-4 border-b border-zinc-200 pb-1">
+                                <h3 className="mb-4 border-b border-zinc-200 pb-1 text-xs font-bold uppercase tracking-widest text-zinc-500">
                                     Featured Projects
                                 </h3>
                                 <div className="space-y-5">
@@ -424,7 +424,7 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
                                         .slice(0, 4)
                                         .map((proj, i) => (
                                             <div key={i} className="break-inside-avoid">
-                                                <div className="flex items-center justify-between mb-1">
+                                                <div className="mb-1 flex items-center justify-between">
                                                     <h4 className="text-sm font-bold text-zinc-900">
                                                         {proj.title}
                                                     </h4>
@@ -438,14 +438,14 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
                                                         </a>
                                                     )}
                                                 </div>
-                                                <p className="text-sm text-zinc-700 mb-2 leading-relaxed">
+                                                <p className="mb-2 text-sm leading-relaxed text-zinc-700">
                                                     {proj.description}
                                                 </p>
                                                 <div className="flex flex-wrap gap-1">
                                                     {proj.tech.map((t, idx) => (
                                                         <span
                                                             key={idx}
-                                                            className="text-[10px] font-mono text-zinc-500 border border-zinc-200 rounded px-1.5 py-0.5"
+                                                            className="rounded border border-zinc-200 px-1.5 py-0.5 font-mono text-[10px] text-zinc-500"
                                                         >
                                                             {t}
                                                         </span>
@@ -459,7 +459,7 @@ const Resume: React.FC<ResumeProps> = ({ data }) => {
                     </div>
 
                     {/* Footer */}
-                    <div className="mt-12 pt-6 border-t border-zinc-100 flex justify-between items-center text-xs text-zinc-400 print:hidden">
+                    <div className="mt-12 flex items-center justify-between border-t border-zinc-100 pt-6 text-xs text-zinc-400 print:hidden">
                         <span>
                             &copy; {new Date().getFullYear()} {profile.name}
                         </span>

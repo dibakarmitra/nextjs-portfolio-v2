@@ -74,11 +74,11 @@ const Skills: React.FC<SkillsProps> = ({ skills: dbSkills }) => {
                         return (
                             <div
                                 key={index}
-                                className="group relative flex items-center justify-center bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg py-2 px-3 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors gap-2"
+                                className="group relative flex items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-white px-3 py-2 transition-colors hover:border-zinc-400 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-600"
                                 title={skill}
                             >
                                 <div
-                                    className={`relative w-4 h-4 transition-all opacity-70 group-hover:opacity-100 ${invertInDark ? 'dark:invert' : ''}`}
+                                    className={`relative h-4 w-4 opacity-70 transition-all group-hover:opacity-100 ${invertInDark ? 'dark:invert' : ''}`}
                                 >
                                     <Image
                                         src={`https://cdn.simpleicons.org/${slug}`}
@@ -88,7 +88,7 @@ const Skills: React.FC<SkillsProps> = ({ skills: dbSkills }) => {
                                         sizes="16px"
                                     />
                                 </div>
-                                <span className="text-xs font-mono text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 cursor-default">
+                                <span className="cursor-default font-mono text-xs text-zinc-600 group-hover:text-zinc-900 dark:text-zinc-400 dark:group-hover:text-zinc-100">
                                     {skill}
                                 </span>
                             </div>

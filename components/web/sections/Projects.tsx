@@ -64,12 +64,12 @@ const Projects: React.FC<ProjectsProps> = ({ projects: dbProjects }) => {
             rightElement={
                 <Link
                     href="/projects"
-                    className="group flex items-center gap-1 text-sm font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                    className="group flex items-center gap-1 text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
                 >
                     View All
                     <ArrowRight
                         size={14}
-                        className="group-hover:translate-x-1 transition-transform"
+                        className="transition-transform group-hover:translate-x-1"
                     />
                 </Link>
             }
@@ -79,20 +79,20 @@ const Projects: React.FC<ProjectsProps> = ({ projects: dbProjects }) => {
                     const isOpen = expandedItems.includes(index);
                     return (
                         <FadeIn key={index} delay={index * 100}>
-                            <div className="group bg-white dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-lg overflow-hidden hover:border-zinc-400 dark:hover:border-zinc-600 transition-all">
+                            <div className="group overflow-hidden rounded-lg border border-zinc-200 bg-white transition-all hover:border-zinc-400 dark:border-zinc-800 dark:bg-zinc-900/50 dark:hover:border-zinc-600">
                                 <div
                                     onClick={() => toggleItem(index)}
-                                    className="flex items-center justify-between p-4 cursor-pointer"
+                                    className="flex cursor-pointer items-center justify-between p-4"
                                 >
                                     <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 bg-zinc-100 dark:bg-zinc-800 rounded-md flex items-center justify-center text-zinc-500 dark:text-zinc-400">
+                                        <div className="flex h-8 w-8 items-center justify-center rounded-md bg-zinc-100 text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400">
                                             <Folder size={16} />
                                         </div>
                                         <div>
-                                            <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                                            <h3 className="text-sm font-semibold text-zinc-900 transition-colors group-hover:text-blue-600 dark:text-zinc-100 dark:group-hover:text-blue-400">
                                                 {project.title}
                                             </h3>
-                                            <p className="text-xs text-zinc-500 font-mono">
+                                            <p className="font-mono text-xs text-zinc-500">
                                                 {project.date}
                                             </p>
                                         </div>
@@ -102,7 +102,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects: dbProjects }) => {
                                             <Link
                                                 href={project.link}
                                                 target="_blank"
-                                                className="text-zinc-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                                                className="text-zinc-400 transition-colors hover:text-blue-600 dark:hover:text-blue-400"
                                                 onClick={(e) => e.stopPropagation()}
                                             >
                                                 <ArrowUpRight size={16} />
@@ -112,14 +112,14 @@ const Projects: React.FC<ProjectsProps> = ({ projects: dbProjects }) => {
                                             <Link
                                                 href={project.repo}
                                                 target="_blank"
-                                                className="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                                                className="text-zinc-400 transition-colors hover:text-zinc-900 dark:hover:text-white"
                                                 onClick={(e) => e.stopPropagation()}
                                             >
-                                                    <Code size={16} />
+                                                <Code size={16} />
                                             </Link>
                                         )}
                                         <div
-                                            className={`text-zinc-400 dark:text-zinc-500 transition-transform duration-300 ${isOpen ? '-rotate-180' : ''}`}
+                                            className={`text-zinc-400 transition-transform duration-300 dark:text-zinc-500 ${isOpen ? '-rotate-180' : ''}`}
                                         >
                                             <ChevronDown size={16} />
                                         </div>
@@ -132,8 +132,8 @@ const Projects: React.FC<ProjectsProps> = ({ projects: dbProjects }) => {
                                     }`}
                                 >
                                     <div className="overflow-hidden">
-                                        <div className="px-4 pb-4 space-y-4">
-                                            <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                                        <div className="space-y-4 px-4 pb-4">
+                                            <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                                                 {project.description}
                                             </p>
 
@@ -143,9 +143,9 @@ const Projects: React.FC<ProjectsProps> = ({ projects: dbProjects }) => {
                                                         (point: string, i: number) => (
                                                             <li
                                                                 key={i}
-                                                                className="text-sm text-zinc-600 dark:text-zinc-400 flex items-start"
+                                                                className="flex items-start text-sm text-zinc-600 dark:text-zinc-400"
                                                             >
-                                                                <span className="mr-2 mt-1.5 w-1 h-1 bg-zinc-400 dark:bg-zinc-600 rounded-full shrink-0"></span>
+                                                                <span className="mr-2 mt-1.5 h-1 w-1 shrink-0 rounded-full bg-zinc-400 dark:bg-zinc-600"></span>
                                                                 {point}
                                                             </li>
                                                         )
@@ -158,7 +158,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects: dbProjects }) => {
                                                     {project.tech.map((tech: string, i: number) => (
                                                         <span
                                                             key={i}
-                                                            className="px-2 py-0.5 bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded text-[10px] text-zinc-600 dark:text-zinc-300 font-mono"
+                                                            className="rounded border border-zinc-200 bg-zinc-100 px-2 py-0.5 font-mono text-[10px] text-zinc-600 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
                                                         >
                                                             {tech}
                                                         </span>
@@ -176,15 +176,15 @@ const Projects: React.FC<ProjectsProps> = ({ projects: dbProjects }) => {
 
             {otherProjects.length > 0 && (
                 <div className="mt-8">
-                    <h3 className="text-sm font-medium text-zinc-500 dark:text-zinc-400 mb-4">
+                    <h3 className="mb-4 text-sm font-medium text-zinc-500 dark:text-zinc-400">
                         Other Projects
                     </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                         {otherProjects.map((project, index) => (
                             <FadeIn key={index} delay={index * 50}>
-                                <div className="group p-4 bg-white dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-lg hover:border-zinc-400 dark:hover:border-zinc-600 transition-all">
-                                    <div className="flex items-start justify-between mb-2">
-                                        <div className="w-6 h-6 bg-zinc-100 dark:bg-zinc-800 rounded flex items-center justify-center text-zinc-400">
+                                <div className="group rounded-lg border border-zinc-200 bg-white p-4 transition-all hover:border-zinc-400 dark:border-zinc-800 dark:bg-zinc-900/50 dark:hover:border-zinc-600">
+                                    <div className="mb-2 flex items-start justify-between">
+                                        <div className="flex h-6 w-6 items-center justify-center rounded bg-zinc-100 text-zinc-400 dark:bg-zinc-800">
                                             <Folder size={14} />
                                         </div>
                                         <div className="flex items-center gap-2">
@@ -192,7 +192,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects: dbProjects }) => {
                                                 <Link
                                                     href={project.link}
                                                     target="_blank"
-                                                    className="text-zinc-400 hover:text-blue-600 transition-colors"
+                                                    className="text-zinc-400 transition-colors hover:text-blue-600"
                                                 >
                                                     <ArrowUpRight size={14} />
                                                 </Link>
@@ -201,17 +201,17 @@ const Projects: React.FC<ProjectsProps> = ({ projects: dbProjects }) => {
                                                 <Link
                                                     href={project.repo}
                                                     target="_blank"
-                                                    className="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+                                                    className="text-zinc-400 transition-colors hover:text-zinc-900 dark:hover:text-white"
                                                 >
                                                     <Code size={14} />
                                                 </Link>
                                             )}
                                         </div>
                                     </div>
-                                    <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                                    <h3 className="mb-1 text-sm font-semibold text-zinc-900 transition-colors group-hover:text-blue-600 dark:text-zinc-100 dark:group-hover:text-blue-400">
                                         {project.title}
                                     </h3>
-                                    <p className="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-2">
+                                    <p className="line-clamp-2 text-xs text-zinc-600 dark:text-zinc-400">
                                         {project.description}
                                     </p>
                                 </div>
@@ -227,7 +227,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects: dbProjects }) => {
                         <Link
                             href={publicProfile.socials.github}
                             target="_blank"
-                            className="inline-flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 font-medium transition-colors"
+                            className="inline-flex items-center gap-2 text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
                         >
                             View all projects on GitHub
                             <ArrowRight size={14} />
