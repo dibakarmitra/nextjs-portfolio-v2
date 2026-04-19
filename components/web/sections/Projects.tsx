@@ -13,7 +13,6 @@ interface ProjectsProps {
 }
 
 const Projects: React.FC<ProjectsProps> = ({ projects: dbProjects }) => {
-    const [expandedItems, setExpandedItems] = useState<number[]>([0]);
 
     // transform db projects to component format or use static
     const projects =
@@ -47,10 +46,10 @@ const Projects: React.FC<ProjectsProps> = ({ projects: dbProjects }) => {
                   isFeatured: p.category === 'featured',
               }));
 
+    const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
+
     const toggleItem = (index: number) => {
-        setExpandedItems((prev) =>
-            prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
-        );
+        setExpandedIndex(expandedIndex === index ? null : index);
     };
 
     const featuredProjects = projects.filter((p) => p.isFeatured);
@@ -76,7 +75,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects: dbProjects }) => {
         >
             <div className="space-y-4">
                 {featuredProjects.map((project, index) => {
-                    const isOpen = expandedItems.includes(index);
+                    const isOpen = expandedIndex === index;
                     return (
                         <FadeIn key={index} delay={index * 100}>
                             <div className="group overflow-hidden rounded-lg border border-zinc-200 bg-white transition-all hover:border-zinc-400 dark:border-zinc-800 dark:bg-zinc-900/50 dark:hover:border-zinc-600">
